@@ -12,7 +12,7 @@ https://github.com/vivienrauch/macromeals-pp4
 
 # **Table of Contents**
 
-# ## **Objective** - *Stragety Plane*
+# **Objective** - *Stragety Plane*
 
 ## **User Stories**
 
