@@ -1,5 +1,5 @@
 ---
-name: Usert Story Template
+name: User Story Template
 about: Default user story template
 title: ''
 labels: ''
