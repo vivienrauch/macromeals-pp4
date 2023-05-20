@@ -11,7 +11,12 @@ class Entry(models.Model):
     slug = models.SlugField(max_length=200, unique = True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    cooking_time = models.IntegerField(
+        default=0, 
+        help_text = "Add your cooking/preparation time in minutes"
+        )
+    ingredients = models.TextField(blank=True)
+    steps = models.TextField(blank=True)
     kcal = models.IntegerField(default=0)
     protein = models.IntegerField(help_text = "Add your protein in grams", default=0)
     carbs = models.IntegerField(help_text = "Add your carbs in grams", default=0)
@@ -50,6 +55,23 @@ class Entry(models.Model):
         choices = macro_low_choices,
         default = empty_field
     )
+    vegan = 'VE'
+    carnivore = 'CA'
+    vegetarian = 'LO'
+    pescitarian = 'PE'
+    meal_type_choices = [
+        (vegan, "Vegan"),
+        (vegetarian, "Vegetarian (lacto-ovo)"),
+        (carnivore, "Carnivore"),
+        (pescitarian, "Pescitarian"),
+        (empty_field, "-")
+    ]
+    meal_type = models.CharField(
+        max_length = 2,
+        choices = meal_type_choices,
+        default = empty_field
+    )
+
 
     class Meta:
         ordering = ['-created_on']
