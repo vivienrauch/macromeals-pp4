@@ -21,6 +21,35 @@ class Entry(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='recipe_likes', blank=True)
+    high_protein = "HP"
+    high_carb = "HC"
+    high_fat = "HF"
+    empty_field = "EF"
+    macro_high_choices = [
+        (high_protein, "Protein"),
+        (high_carb, "Carbs"),
+        (high_fat, "Fat"),
+        (empty_field, "-")
+        ]
+    highest_in = models.CharField(
+        max_length = 2,
+        choices = macro_high_choices,
+        default = empty_field
+        )
+    low_protein = "LP"
+    low_carb = "LC"
+    low_fat = "LF"
+    macro_low_choices = [
+        (low_protein, "Protein"),
+        (low_carb, "Carbs"),
+        (low_fat, "Fat"),
+        (empty_field, "-")
+    ]
+    lowest_in = models.CharField(
+        max_length = 2,
+        choices = macro_low_choices,
+        default = empty_field
+    )
 
     class Meta:
         ordering = ['-created_on']
@@ -30,51 +59,6 @@ class Entry(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
-
-
-class HighInMacro(models.Model):
-    high_protein = "HP"
-    high_carb = "HC"
-    high_fat = "HF"
-    macro_high_choices = [
-        (high_protein, "High in protein"),
-        (high_carb, "High in carbs"),
-        (high_fat, "High in fat")
-    ]
-    macro_high = models.CharField(
-        max_length = 2,
-        choices = macro_high_choices,
-    )
-
-
-class LowInMacro(models.Model):
-    low_protein = "LP"
-    low_carb = "LC"
-    low_fat = "LF"
-    macro_low_choices = [
-        (low_protein, "Low in protein"),
-        (low_carb, "Low in carbs"),
-        (low_fat, "Low in fat")
-    ]
-    macro_low = models.CharField(
-        max_length = 2,
-        choices = macro_low_choices,
-    )
-
-
-class ModerateInMacro(models.Model):
-    moderate_protein = "MP"
-    moderate_carb = "MC"
-    moderate_fat = "MF"
-    macro_moderate_choices = [
-        (moderate_protein, "Moderate in protein"),
-        (moderate_carb, "Moderate in carbs"),
-        (moderate_fat, "Moderate in fat")
-    ]
-    macro_moderate = models.CharField(
-        max_length = 2,
-        choices = macro_moderate_choices,
-    )
 
 
 class Comment(models.Model):
