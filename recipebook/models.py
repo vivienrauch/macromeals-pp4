@@ -83,6 +83,9 @@ class Entry(models.Model):
         return self.likes.count()
 
 
+
+
+
 class Comment(models.Model):
     entry = models.ForeignKey(Entry, on_delete=models.CASCADE)
     name = models.CharField(max_length=80)
