@@ -82,8 +82,23 @@ class Entry(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
+    # inspired by the following source:
+    # https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c
+    def average_rating(self) -> float:
+        return Rating.objects.filter(entry=self).aggregate(Avg("rating"))["rating__avg"] or 0
 
 
+class Rating(models.Model):
+    entry = models.ForeignKey(Entry, null=False, blank=False, on_delete=models.CASCADE)
+    rating = models.IntegerField(User, default=0)
+    user = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return f"{self.entry.title}: {self.rating}"
 
 
 class Comment(models.Model):
