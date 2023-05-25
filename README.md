@@ -20,7 +20,13 @@ https://github.com/vivienrauch/macromeals-pp4
 
 ### **Database Structure**
 
+<img src="https://res.cloudinary.com/dnm7rmkuf/image/upload/v1685047009/macromeals_database_juz9lr.png">
+
 ### **Wireframes**
+
+<img src="https://res.cloudinary.com/dnm7rmkuf/image/upload/v1685046131/macromeals_wireframe_gf1xmx.png">
+<img src="https://res.cloudinary.com/dnm7rmkuf/image/upload/v1685046556/macromeals_wireframe2_dnudar.png">
+<img src="https://res.cloudinary.com/dnm7rmkuf/image/upload/v1685046556/macromeals_wireframe3_xvylss.png">
 
 ### **Colors**
 
