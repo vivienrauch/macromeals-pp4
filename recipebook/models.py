@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Avg
 from cloudinary.models import CloudinaryField
 
 
@@ -99,6 +100,10 @@ class Rating(models.Model):
 
     def __str__(self):
         return f"{self.entry.title}: {self.rating}"
+
+
+class ContactMe(models.Model):
+    
 
 
 class Comment(models.Model):
