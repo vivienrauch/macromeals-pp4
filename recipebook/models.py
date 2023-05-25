@@ -102,9 +102,8 @@ class Rating(models.Model):
         return f"{self.entry.title}: {self.rating}"
 
 
-class ContactMe(models.Model):
+#class ContactMe(models.Model):
     
-
 
 class Comment(models.Model):
     entry = models.ForeignKey(Entry, on_delete=models.CASCADE)
