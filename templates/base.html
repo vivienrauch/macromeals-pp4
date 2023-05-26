@@ -41,14 +41,14 @@
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    <a class="nav-link" href="#">Logout</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                    <a class="nav-link" href="#">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="nav-link" href="#">Login</a>
                 </li>
                 {% endif %}
               </ul>           
@@ -68,12 +68,6 @@
           </div>
     </header>
 
-    <div>
-      {% block header %}
-      <!-- Hero Image -->
-      {% endblock content %}
-    </div>
-
     <main>
       {% block content %}
       <!-- Content -->
@@ -81,7 +75,10 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer mt-auto py-3">
+      <p>
+        For Educational purposes
+      </p>
 
     </footer>
 

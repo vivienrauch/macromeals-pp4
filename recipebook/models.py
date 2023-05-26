@@ -19,7 +19,9 @@ class Entry(models.Model):
     ingredients = models.TextField(blank=True)
     steps = models.TextField(blank=True)
     kcal = models.IntegerField(default=0)
-    protein = models.IntegerField(help_text = "Add your protein in grams", default=0)
+    protein = models.IntegerField(
+        help_text = "Add your protein in grams", default=0
+        )
     carbs = models.IntegerField(help_text = "Add your carbs in grams", default=0)
     fat = models.IntegerField(help_text = "Add your fats in grams", default=0)
     featured_image = CloudinaryField('image', default='placeholder')
@@ -72,7 +74,6 @@ class Entry(models.Model):
         choices = meal_type_choices,
         default = empty_field
     )
-
 
     class Meta:
         ordering = ['-created_on']
