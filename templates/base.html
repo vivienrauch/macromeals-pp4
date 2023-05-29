@@ -21,23 +21,17 @@
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
               <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="https://res.cloudinary.com/dnm7rmkuf/image/upload/v1685010074/MacroMeals_bivkll.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top logo">
                 MacroMeals
               </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            </div>
-            <ul class="nav justify-content-end">
+              <ul class="nav justify-content-end">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Recipes</a>
+                  <a class="nav-link" aria-current="page" href="#">Recipes</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                  <a class="nav-link" aria-current="page" href="#">Contact</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
@@ -52,6 +46,8 @@
                 </li>
                 {% endif %}
               </ul>           
+            </div>
+            
           </nav>
           <!-- Display Alert Messages ("I think therefore I blog" walkthrough) -->
           <div class="container">
@@ -67,6 +63,12 @@
             </div>
           </div>
     </header>
+
+    <div>
+      {% block header %}
+      <!-- Hero image -->
+      {% endblock %}
+    </div>
 
     <main>
       {% block content %}
