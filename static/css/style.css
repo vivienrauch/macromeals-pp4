@@ -116,9 +116,14 @@ hr {
 
 .card-title {
     margin-top: 25px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair', serif;
+    font-size: 150%;
     text-decoration: none;
     color: #3a3a3a;
+}
+
+.card-title:hover {
+    color: #fa9c1b;
 }
 
 .card-text {
@@ -126,6 +131,10 @@ hr {
     color: #3a3a3a;
     text-decoration: none;
     text-align: justify;
+}
+
+.card-img-top {
+    height: 70%;
 }
 
 /* --------------------- Footer */
