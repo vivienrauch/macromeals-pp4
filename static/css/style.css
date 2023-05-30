@@ -121,6 +121,13 @@ hr {
     color: #3a3a3a;
 }
 
+.card-text {
+    font-family: 'Playfair', serif;
+    color: #3a3a3a;
+    text-decoration: none;
+    text-align: justify;
+}
+
 /* --------------------- Footer */
 
 footer {
