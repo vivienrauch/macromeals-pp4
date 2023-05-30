@@ -24,6 +24,10 @@ body {
     background-color: #fafafa;
 }
 
+hr {
+    color:#fa9c1b;
+}
+
 /* --------------------- Hero image */
 
 .hero-img {
@@ -36,6 +40,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 30px;
 }
 
 .hero-img h1 {
@@ -67,3 +72,85 @@ body {
 .nav-link:active {
     text-decoration: underline;
 }
+
+/* --------------------- Login/Sign Up */
+
+.login-signup {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+}
+
+.btn-primary {
+    --bs-btn-color: #3a3a3a;
+    --bs-btn-bg: #fa9c1b;
+    --bs-btn-border-color: #fa9c1b;
+    --bs-btn-hover-bg: #fcae1e;
+    --bs-btn-hover-border-color: #fcae1e;
+    --bs-btn-active-bg: #fa9c1b;
+    --bs-btn-active-border-color: #fa9c1b;
+    --bs-btn-disabled-bg: #fcae1e;
+    --bs-btn-disabled-border-color: #fcae1e;
+    margin-right: 5px;
+    font-family: 'Playfair', serif;
+}
+
+.btn-outline-secondary {
+    --bs-btn-color: #3a3a3a;
+    --bs-btn-border-color: #fa9c1b;
+    --bs-btn-hover-bg: #fa9c1b;
+    --bs-btn-hover-border-color: #fa9c1b;
+    --bs-btn-active-bg: #fa9c1b;
+    --bs-btn-active-border-color: #fa9c1b;
+    --bs-btn-disabled-bg: #fcae1e;
+    --bs-btn-disabled-border-color: #fcae1e;
+    font-family: 'Playfair', serif;
+}
+
+/* --------------------- Cards */
+
+.post-link {
+    text-decoration: none;
+}
+
+.card-title {
+    margin-top: 25px;
+    font-family: 'Cinzel', serif;
+    text-decoration: none;
+    color: #3a3a3a;
+}
+
+/* --------------------- Footer */
+
+footer {
+    width: 100%;
+    height: 60px;
+    background-color: #fa9c1b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.social p {
+    margin: 0;
+}
+
+.fa-github {
+    color: #3a3a3a;
+    border-radius: 50%;
+}
+
+.fa-github:hover {
+    color: #fafafa;
+}
+
+ 

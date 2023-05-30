@@ -26,16 +26,14 @@
                                     {% else %}
                                     <img class="card-img-top" src=" {{ entry.featured_image.url }}">
                                     {% endif %}
-                                    <div class="image-flash">
-                                        <p class="author">Author: {{ entry.author }}</p>
-                                    </div>
                                 </div>
                                 <a href="#" class="post-link">
                                     <h2 class="card-title">{{ entry.title }}</h2>
                                     <p class="card-text">{{ entry.excerpt }}</p>
                                 </a>
                                 <hr />
-                                <p class="card-text text-muted h6">{{ entry.created_on}} <i class="far fa-heart"></i>
+                                <p class="author">Author: {{ entry.author }}</p>
+                                <p class="card-text text-muted h6">{{ entry.created_on}} 
                                     {{ entry.rating }}</p>
                             </div>
                         </div>
