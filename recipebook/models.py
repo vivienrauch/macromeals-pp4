@@ -6,8 +6,47 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+# High variables
+high_protein = "HP"
+high_carb = "HC"
+high_fat = "HF"
+empty_field = "EF"
+macro_high_choices = [
+    (high_protein, "Protein"),
+    (high_carb, "Carbs"),
+    (high_fat, "Fat"),
+    (empty_field, "-")
+    ]
+
+# Low variables
+low_protein = "LP"
+low_carb = "LC"
+low_fat = "LF"
+macro_low_choices = [
+    (low_protein, "Protein"),
+    (low_carb, "Carbs"),
+    (low_fat, "Fat"),
+    (empty_field, "-")
+    ]
+
+# Meal type variables
+vegan = 'VE'
+carnivore = 'CA'
+vegetarian = 'LO'
+pescitarian = 'PE'
+meal_type_choices = [
+    (vegan, "Vegan"),
+    (vegetarian, "Vegetarian (lacto-ovo)"),
+    (carnivore, "Carnivore"),
+    (pescitarian, "Pescitarian"),
+    (empty_field, "-")
+    ]
+
 
 class Entry(models.Model):
+    """
+    Storing Entry data
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique = True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -28,47 +67,17 @@ class Entry(models.Model):
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='recipe_likes', blank=True)
-    high_protein = "HP"
-    high_carb = "HC"
-    high_fat = "HF"
-    empty_field = "EF"
-    macro_high_choices = [
-        (high_protein, "Protein"),
-        (high_carb, "Carbs"),
-        (high_fat, "Fat"),
-        (empty_field, "-")
-        ]
+    likes = models.ManyToManyField(User, related_name='recipe_likes', blank=True) 
     highest_in = models.CharField(
         max_length = 2,
         choices = macro_high_choices,
         default = empty_field
-        )
-    low_protein = "LP"
-    low_carb = "LC"
-    low_fat = "LF"
-    macro_low_choices = [
-        (low_protein, "Protein"),
-        (low_carb, "Carbs"),
-        (low_fat, "Fat"),
-        (empty_field, "-")
-    ]
+        ) 
     lowest_in = models.CharField(
         max_length = 2,
         choices = macro_low_choices,
         default = empty_field
     )
-    vegan = 'VE'
-    carnivore = 'CA'
-    vegetarian = 'LO'
-    pescitarian = 'PE'
-    meal_type_choices = [
-        (vegan, "Vegan"),
-        (vegetarian, "Vegetarian (lacto-ovo)"),
-        (carnivore, "Carnivore"),
-        (pescitarian, "Pescitarian"),
-        (empty_field, "-")
-    ]
     meal_type = models.CharField(
         max_length = 2,
         choices = meal_type_choices,
@@ -78,16 +87,17 @@ class Entry(models.Model):
     class Meta:
         ordering = ['-created_on']
 
-    def __str__(self):
-        return self.title
-
     def number_of_likes(self):
         return self.likes.count()
 
     # inspired by the following source:
     # https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c
+
     def average_rating(self) -> float:
         return Rating.objects.filter(entry=self).aggregate(Avg("rating"))["rating__avg"] or 0
+
+    def __str__(self):
+        return f"{self.title}: {self.average_rating()}"
 
 
 class Rating(models.Model):
