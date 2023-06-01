@@ -2,10 +2,19 @@
 
 {% block content %}
 
-<div class="container-fluid hero-img-recipe">
-    <div class="recipe-title-box">
-        <h2 class="recipe-title">{{ entry.title }}</h2>
-        <p class="recipe-author">{{ entry.author }} | {{ entry.created_on }}</p>
+<div class="container">
+    <div class="row">
+         <div class="card mb-3 title-card">
+            <div class="row g-0">   
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title recipe-title">{{ entry.title }}</h5>
+                        <p class="card-text">{{ entry.author }}</p>
+                        <p class="card-text"><small class="text-muted">{{ entry.created_on }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="container">
@@ -57,11 +66,11 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-8 card mb-4 mt3">
-        <h2>Comments:</h2>
+    <div class="col-md-8 card mb-4 mt3 comments">
+        <h2 class="comments-heading">Comments:</h2>
         <div class="card-body">
             {% for comment in comments %}
-            <div class="comments">
+            <div>
                 <p>
                     {{ comment.name }}
                     <span>
@@ -71,11 +80,6 @@
                 {{ comment.body | linebreaks }}
             </div>
             {% endfor %}
-        </div>
-    </div>
-    <div class="col-md-4 card mb-4 mt-3">
-        <div class="card-body">
-
         </div>
     </div>
 </div>
