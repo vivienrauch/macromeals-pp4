@@ -65,21 +65,25 @@
         <hr>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-8 card mb-4 mt3 comments">
-        <h2 class="comments-heading">Comments:</h2>
-        <div class="card-body">
-            {% for comment in comments %}
-            <div>
-                <p>
-                    {{ comment.name }}
-                    <span>
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4 mt-3 comments">
+            <h2 class="comments-heading">Comments:</h2>
+            <div class="card-body">
+                {% for comment in comments %}
+                <div>
+                    <p class="commenter-name">
+                        {{ comment.name }} wrote:
+                    </p class="comment-body">
+                    <p>
+                        <i class="fa-solid fa-comment"></i>  {{ comment.body }}
+                    </p>
+                    <p class="comment-date">
                         {{ comment.created_on }}
-                    </span> wrote:
-                </p>
-                {{ comment.body | linebreaks }}
+                    </p>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
 </div>

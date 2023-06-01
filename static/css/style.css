@@ -194,8 +194,17 @@ footer {
     color: #3a3a3a;
 }
 
+.steps {
+    font-family: 'Playfair', serif;
+}
+
+.ingredients {
+    font-family: 'Playfair', serif;
+}
+
 .comments-heading {
     font-size: 100%;
+    margin-top: 15px;
 }
 
 h3 {
@@ -203,5 +212,14 @@ h3 {
 }
 
 .comments {
+    display: flex;
+}
+
+.comment-date {
+    font-style: italic;
+}
+
+.fa-comment {
+    color: #fa9c1b;
     display: flex;
 }
