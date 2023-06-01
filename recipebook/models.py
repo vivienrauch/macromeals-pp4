@@ -7,9 +7,9 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, "Draft"), (1, "Published"))
 
 # High variables
-high_protein = "HP"
-high_carb = "HC"
-high_fat = "HF"
+high_protein = "Protein"
+high_carb = "Carbs"
+high_fat = "Fat"
 empty_field = "EF"
 macro_high_choices = [
     (high_protein, "Protein"),
@@ -19,9 +19,9 @@ macro_high_choices = [
     ]
 
 # Low variables
-low_protein = "LP"
-low_carb = "LC"
-low_fat = "LF"
+low_protein = "Protein"
+low_carb = "Carbs"
+low_fat = "Fat"
 macro_low_choices = [
     (low_protein, "Protein"),
     (low_carb, "Carbs"),
@@ -30,10 +30,10 @@ macro_low_choices = [
     ]
 
 # Meal type variables
-vegan = 'VE'
-carnivore = 'CA'
-vegetarian = 'LO'
-pescitarian = 'PE'
+vegan = 'Vegan'
+carnivore = 'Carnivore'
+vegetarian = 'Vegetarian (lacto-ovo)'
+pescitarian = 'Pescitarian'
 meal_type_choices = [
     (vegan, "Vegan"),
     (vegetarian, "Vegetarian (lacto-ovo)"),
@@ -53,33 +53,32 @@ class Entry(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     cooking_time = models.IntegerField(
         default=0, 
-        help_text = "Add your cooking/preparation time in minutes"
+        help_text = "Add your cooking time in minutes"
         )
     ingredients = models.TextField(blank=True)
     steps = models.TextField(blank=True)
     kcal = models.IntegerField(default=0)
     protein = models.IntegerField(
-        help_text = "Add your protein in grams", default=0
+        help_text = "Add your amount in grams", default=0
         )
-    carbs = models.IntegerField(help_text = "Add your carbs in grams", default=0)
-    fat = models.IntegerField(help_text = "Add your fats in grams", default=0)
+    carbs = models.IntegerField(help_text = "Add your amount in grams", default=0)
+    fat = models.IntegerField(help_text = "Add your amount in grams", default=0)
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='recipe_likes', blank=True) 
     highest_in = models.CharField(
-        max_length = 2,
+        max_length = 8,
         choices = macro_high_choices,
         default = empty_field
         ) 
     lowest_in = models.CharField(
-        max_length = 2,
+        max_length = 8,
         choices = macro_low_choices,
         default = empty_field
     )
     meal_type = models.CharField(
-        max_length = 2,
+        max_length = 23,
         choices = meal_type_choices,
         default = empty_field
     )
@@ -117,7 +116,7 @@ class Rating(models.Model):
     
 
 class Comment(models.Model):
-    entry = models.ForeignKey(Entry, on_delete=models.CASCADE)
+    entry = models.ForeignKey(Entry, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()

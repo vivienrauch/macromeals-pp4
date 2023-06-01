@@ -8,8 +8,83 @@
             <h1 class="recipe-title">{{ entry.title }}</h1>
             <p class="recipe-author">{{ entry.author }} | {{ entry.created_on }}</p>
         </div>
-
     </div>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4 mt-3 left top">
+            <div class="card-body">
+                <p class="card-text">Cooking/Preparation time:
+                    <strong>{{ entry.cooking_time | safe }} minutes</strong>
+                </p>
+                <hr>
+                <div class="ingredients">
+                    <h3>What you'll need:</h3>
+                    {{ entry.ingredients | safe }}
+                </div>
+                <hr>
+                <div class="steps">
+                    <h3>Instructions:</h3>
+                    {{ entry.steps | safe }}
+                </div>
+                <hr>
+                <div class="macros">
+                    <h3>Macros per serving:</h3>
+                    <p>Overall calories: {{ entry.kcal }} kcal</p>
+                    <p>Protein: {{ entry.protein }} g</p>
+                    <p>Carbs: {{ entry.carbs }} g</p>
+                    <p>Fat: {{ entry.fat }} g</p>
+                </div>
+                <hr>
+                <div>
+                    <p>Highest in: {{ entry.highest_in }}</p>
+                    <p>Lowest in: {{ entry.lowest_in }}</p>
+                    <p>Meal type: {{ entry.meal_type }}</p>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+                        <p class="card-text text-muted h6"><i class="fa-regular fa-star"></i>
+                            {{ entry.average_rating|floatformat:1 }}
+                        </p>
+                    </div>
+                    <div class="col-1">
+                        {% with comments.count as total_comments %}
+                        <p><i class="fa-regular fa-comments"></i>
+                            {{ total_comments }}
+                        </p>
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 card mb-4 mt3">
+        <h2>Comments:</h2>
+        <div class="card-body">
+            {% for comment in comments %}
+            <div class="comments">
+                <p>
+                    {{ comment.name }}
+                    <span>
+                        {{ comment.created_on }}
+                    </span> wrote:
+                </p>
+                {{ comment.body | linebreaks }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-4 card mb-4 mt-3">
+        <div class="card-body">
 
+        </div>
+    </div>
+</div>
 {% endblock content %}
