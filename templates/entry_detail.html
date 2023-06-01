@@ -2,12 +2,10 @@
 
 {% block content %}
 
-<div class="container-fluid hero-img">
-    <div class="row g-0">
-        <div class="col-md-6">
-            <h1 class="recipe-title">{{ entry.title }}</h1>
-            <p class="recipe-author">{{ entry.author }} | {{ entry.created_on }}</p>
-        </div>
+<div class="container-fluid hero-img-recipe">
+    <div class="recipe-title-box">
+        <h2 class="recipe-title">{{ entry.title }}</h2>
+        <p class="recipe-author">{{ entry.author }} | {{ entry.created_on }}</p>
     </div>
 </div>
 <div class="container">
@@ -34,12 +32,6 @@
                     <p>Protein: {{ entry.protein }} g</p>
                     <p>Carbs: {{ entry.carbs }} g</p>
                     <p>Fat: {{ entry.fat }} g</p>
-                </div>
-                <hr>
-                <div>
-                    <p>Highest in: {{ entry.highest_in }}</p>
-                    <p>Lowest in: {{ entry.lowest_in }}</p>
-                    <p>Meal type: {{ entry.meal_type }}</p>
                 </div>
                 <div class="row">
                     <div class="col-1">

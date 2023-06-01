@@ -175,6 +175,16 @@ footer {
 
 /* --------------------- Recipes */
 
+.hero-img-recipe {
+    background: url('https://res.cloudinary.com/dnm7rmkuf/image/upload/v1685011034/pexels-ella-olsson-1640770_z9yku5.jpg') no-repeat;
+    display: flex;
+    height: 300px;
+    width: 100%;
+    justify-content: left;
+    align-items: flex-start;
+}
+
 h3 {
     font-size: 130%;
 }
+
