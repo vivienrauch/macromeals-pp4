@@ -223,3 +223,27 @@ h3 {
     color: #fa9c1b;
     display: flex;
 }
+
+/* --------------------- Sign Up */
+
+.signup-card {
+    width: 400px;
+    margin-bottom: 30px;
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.btn-signup {
+    font-family: 'Playfair', serif;
+    background-color: #fa9c1b;
+    color: #3a3a3a;
+    border-radius: 8px;
+}
+
+.btn-signup:hover {
+    background-color: #fafafa;
+    color:#fa9c1b;
+    border-color:#fa9c1b;
+}
