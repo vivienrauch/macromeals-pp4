@@ -75,7 +75,7 @@ hr {
 
 /* --------------------- Login/Sign Up */
 
-.login-signup {
+/*.login-signup {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -106,7 +106,7 @@ hr {
     --bs-btn-disabled-bg: #fcae1e;
     --bs-btn-disabled-border-color: #fcae1e;
     font-family: 'Playfair', serif;
-}
+} */
 
 /* --------------------- Cards */
 
