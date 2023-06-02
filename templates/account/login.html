@@ -7,19 +7,22 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
+<div class="container-fluid hero-img-signup-in">
+    <h1>MacroMeals</h1>
+</div>
+<div class="card container-fluid signup-in-card">
+    <div class="row signup-in-row">
+        <div class="col-md-8 mt-3">
+            <h3 class="signup-in-header">{% trans "Sign In" %}</h3>
 
-            <p>{% blocktrans %}Welcome back to the code|star blog. To leave a comment or like a post, please log in. If
+            <p>{% blocktrans %}Hi! To leave a comment or rate a recipe, please log in. If
                 you
-                have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
+                have not created an account yet, then <a class="link signup-in-link" href="{{ signup_url }}">sign up</a>
                 first.{% endblocktrans %}</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
+    <div class="row signup-in-row">
+        <div class="signup-in-div col-md-8 mt-3">
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form.as_p }}

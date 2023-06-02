@@ -226,7 +226,7 @@ h3 {
 
 /* --------------------- Sign Up */
 
-.signup-card {
+.signup-in-card {
     width: 400px;
     margin-bottom: 30px;
     margin-top: 35px;
@@ -247,11 +247,29 @@ h3 {
     border-color:#fa9c1b;
 }
 
-.signin-link {
+.signup-in-link {
     text-decoration: none;
     color: #fa9c1b;
 }
 
-.signup-header {
+.signup-in-header {
     font-family: 'Playfair', serif;
+}
+
+.signup-in-row {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-img-signup-in {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    background: url('https://res.cloudinary.com/dnm7rmkuf/image/upload/v1685011034/pexels-ella-olsson-1640770_z9yku5.jpg') no-repeat;
+    background-position: center center;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 30px;
 }
