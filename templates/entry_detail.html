@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <div class="container">
     <div class="row">
          <div class="card mb-3 title-card">
@@ -83,6 +85,29 @@
                     </p>
                 </div>
                 {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4 mt-3 comments">
+            <div class="card-body">
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment will be visible after approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+                <h3 class="lv-comments-heading">Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-cmnt-submit btn-lg">Submit</button>
+                </form>
+                {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>

@@ -74,41 +74,6 @@ hr {
     text-decoration: underline;
 }
 
-/* --------------------- Login/Sign Up */
-
-/*.login-signup {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: end;
-}
-
-.btn-primary {
-    --bs-btn-color: #3a3a3a;
-    --bs-btn-bg: #fa9c1b;
-    --bs-btn-border-color: #fa9c1b;
-    --bs-btn-hover-bg: #fcae1e;
-    --bs-btn-hover-border-color: #fcae1e;
-    --bs-btn-active-bg: #fa9c1b;
-    --bs-btn-active-border-color: #fa9c1b;
-    --bs-btn-disabled-bg: #fcae1e;
-    --bs-btn-disabled-border-color: #fcae1e;
-    margin-right: 5px;
-    font-family: 'Playfair', serif;
-}
-
-.btn-outline-secondary {
-    --bs-btn-color: #3a3a3a;
-    --bs-btn-border-color: #fa9c1b;
-    --bs-btn-hover-bg: #fa9c1b;
-    --bs-btn-hover-border-color: #fa9c1b;
-    --bs-btn-active-bg: #fa9c1b;
-    --bs-btn-active-border-color: #fa9c1b;
-    --bs-btn-disabled-bg: #fcae1e;
-    --bs-btn-disabled-border-color: #fcae1e;
-    font-family: 'Playfair', serif;
-} */
-
 /* --------------------- Cards */
 
 .post-link {
@@ -206,6 +171,7 @@ footer {
 .comments-heading {
     font-size: 100%;
     margin-top: 15px;
+    margin-left: 15px;
 }
 
 h3 {
@@ -273,4 +239,32 @@ h3 {
     align-items: center;
     flex-direction: column;
     margin-bottom: 30px;
+}
+
+/* --------------------- Comment Form */
+
+.btn-cmnt-submit {
+    font-family: 'Playfair', serif;
+    background-color: #fa9c1b;
+    color: #3a3a3a;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.btn-cmnt-submit:hover {
+    background-color: #fafafa;
+    color:#fa9c1b;
+    border-color:#fa9c1b;
+}
+
+.lv-comments-heading {
+    font-size: 100%;
+}
+
+.form-control {
+    height: 150px;
+}
+
+.requiredField {
+    font-family: 'Playfair', serif;
 }

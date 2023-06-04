@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Entry
+from .forms import CommentForm
 
 
 class EntryList(generic.ListView):
@@ -24,6 +25,7 @@ class EntryDetail(View):
             {
                 "entry": entry,
                 "comments": comments,
-                "rating": rating
+                "rating": rating,
+                "comment_form": CommentForm()
             },
         )
