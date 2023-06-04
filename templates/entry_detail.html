@@ -102,6 +102,47 @@
                 <h3 class="lv-comments-heading">Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post">
+                    <p>Please rate our {{entry.title}} recipe:</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="rating" id="one" value="1">
+                        <label class="form-check-label" for="one">
+                            <i class="fa-solid fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="rating" id="two" value="2">
+                        <label class="form-check-label" for="two">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="rating" id="three" value="3">
+                        <label class="form-check-label" for="three">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="rating" id="four" value="4">
+                        <label class="form-check-label" for="four">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="rating" id="five" value="5">
+                        <label class="form-check-label" for="five">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </label>
+                    </div>
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-cmnt-submit btn-lg">Submit</button>

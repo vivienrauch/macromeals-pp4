@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
-from .models import Entry
+from .models import Entry, Rating
 from .forms import CommentForm
 
 
@@ -47,6 +47,14 @@ class EntryDetail(View):
             comment = comment_form.save(commit=False)
             comment.entry = entry
             comment.save()
+
+            user_rating = request.POST.get("rating")
+            if user_rating:
+                rating = int(user_rating)
+            Rating.objects.create(
+                entry=entry, user=request.user, rating=rating
+            )
+
         else:
             comment_form = CommentForm()
 
