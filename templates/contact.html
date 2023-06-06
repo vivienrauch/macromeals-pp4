@@ -19,9 +19,11 @@
             </p>
             <form action="{% url 'contact' %}" method="POST">
                 {% csrf_token %}
-                {{ form | crispy }}
+                {{ contact_form | crispy }}
                 <button type="submit" class="btn btn-cmnt-submit btn-lg">Submit</button>
             </form>
         </div>
     </div>
 </div>
+
+{% endblock %}

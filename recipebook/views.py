@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from django.views import generic, View
-from .models import Entry, Rating
-from .forms import CommentForm
+from django.views import generic, View 
+from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
+from .models import Entry, Rating, Contact
+from .forms import CommentForm, ContactForm
 
 
 class EntryList(generic.ListView):
@@ -71,3 +72,11 @@ class EntryDetail(View):
         )
 
 
+class Contact(CreateView):   
+    
+    model = Contact
+    fields = [
+        'name',
+        'email',
+        'message'
+    ]
