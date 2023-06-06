@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View 
 from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
 from .models import Entry, Rating, Contact
-from .forms import CommentForm
+from .forms import CommentForm, RecipeForm
 
 
 class EntryList(generic.ListView):
@@ -77,6 +77,46 @@ class Recipes(generic.ListView):
     queryset = Entry.objects.filter(status=1).order_by('-created_on')
     template_name = 'recipes.html'
     paginate_by = 6
+
+
+class AddRecipe(View):
+
+    def get(self, request):
+        context = {'recipe_form': RecipeForm()}
+        return render(request, 'add_recipe.html', context)
+
+    def post(self, request):
+        if request.method == 'POST':
+            recipe_form = RecipeForm(request.POST, initial={
+                'author': request.user.email
+            })
+            if recipe_form.is_valid():
+                recipe_form.instance.name = request.user.username
+                recipe_form.instance.email = request.user.email
+                recipe_form.save()
+                messages.success(request, 'Your post will be visible upon approval.')
+                return redirect('home')
+            else:
+                messages.error(request, "Your request couldn't be completed. Please try again.")
+                context = {'recipe_form': recipe_form}
+                return render(request, 'add_recipe.html', context)
+
+        else:
+            recipe_form = RecipeForm()
+
+        context = {'recipe_form': recipe_form}
+        return render(request, 'recipes.html', context)
+
+
+class EditRecipe(UpdateView):
+    model = Entry
+    template_name = 'edit_recipe.html'
+    form_class = RecipeForm
+    success_url = 'recipes/'
+
+    def recipe_form_valid(self, recipe_form):
+        messages.success(self.request, 'Your modifications were saved successfully.')
+        return super().recipe_form_valid(recipe_form)
 
 
 def contact(request):

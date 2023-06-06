@@ -280,10 +280,6 @@ h3 {
     font-size: 100%;
 }
 
-.form-control {
-    height: 150px;
-}
-
 .requiredField {
     font-family: 'Playfair', serif;
 }
@@ -302,7 +298,6 @@ h3 {
 
 .form-control {
     font-family: 'Playfair', serif;
-    border-style: none;
 }
 
 .form-control-sm {
@@ -330,6 +325,16 @@ label {
     margin-top: 10px;
 }
 
-input {
+.contact-name {
     border-style: none;
 }
+
+.contact-email {
+    border-style: none;
+}
+
+.contact-message {
+    border-style: none;
+}
+
+/* --------------------- Add Recipe */

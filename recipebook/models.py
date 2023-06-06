@@ -55,8 +55,8 @@ class Entry(models.Model):
         default=0, 
         help_text = "Add your cooking time in minutes"
         )
-    ingredients = models.TextField(blank=True)
-    steps = models.TextField(blank=True)
+    ingredients = models.TextField(blank=False)
+    steps = models.TextField(blank=False)
     kcal = models.IntegerField(default=0)
     protein = models.IntegerField(
         help_text = "Add your amount in grams", default=0
@@ -85,9 +85,6 @@ class Entry(models.Model):
 
     class Meta:
         ordering = ['-created_on']
-
-    def number_of_likes(self):
-        return self.likes.count()
 
     # inspired by the following source:
     # https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c
