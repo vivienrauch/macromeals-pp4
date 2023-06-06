@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic, View 
 from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
 from .models import Entry, Rating, Contact
-from .forms import CommentForm, ContactForm
+from .forms import CommentForm
 
 
 class EntryList(generic.ListView):
@@ -72,11 +72,15 @@ class EntryDetail(View):
         )
 
 
-class Contact(CreateView):   
-    
-    model = Contact
-    fields = [
-        'name',
-        'email',
-        'message'
-    ]
+def contact(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('name')
+        message = request.POST.get('message')
+        query = Contact(name=name, email=email, message=message)
+        query.save()
+        messages.success('Your message is sent successfully!')
+            
+        return redirect('/contact')
+
+    return render(request, 'contact.html')

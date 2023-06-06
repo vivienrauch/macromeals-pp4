@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 
-{% load crispy_forms_tags %}
-
 {% block content %}
 
 {% load static %}
@@ -19,7 +17,6 @@
             </p>
             <form action="{% url 'contact' %}" method="POST">
                 {% csrf_token %}
-                {{ contact_form | crispy }}
                 <button type="submit" class="btn btn-cmnt-submit btn-lg">Submit</button>
             </form>
         </div>

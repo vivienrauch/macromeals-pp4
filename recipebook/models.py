@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Avg
 from cloudinary.models import CloudinaryField
-from django.urls import reverse
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -129,10 +128,10 @@ class Comment(models.Model):
 
 
 class Contact(models.Model):
-    name = models.CharField(max_length=50, blank=False, null=False)
-    email = models.EmailField(max_length=80, blank=False, null=False)
-    message = models.TextField(blank=False, null=False, default="Type your question/recipe here:")
 
-    def get_absolute_url(self):
-        return reverse("contact", kwargs={"pk": self.pk}) 
-    
+    name = models.CharField(max_length=80, blank=False, null=False)
+    email = models.EmailField(max_length=100, blank=False, null=False),
+    message = models.TextField(blank=False, default='Type your question/recipe here:')
+
+    def __str__(self):
+        return f"{self.name} sent a message from {self.email}"
