@@ -10,14 +10,29 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
-            <h2>Send us a recipe!</h2>
+            <h2 class="contact-header">Send us a recipe!</h2>
             <p>If you have a recipe in mind that you'd
                 like us to feature on the page, or you have
                 a question, please send it our way!
             </p>
             <form action="{% url 'contact' %}" method="POST">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-cmnt-submit btn-lg">Submit</button>
+                <div class="form-group">
+                    <label for="contact-name">Name: </label>
+                    <input class="contact-name form-control-sm" id=contact-name name="name" type="text"
+                    placeholder="Please enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email: </label>
+                    <input class="contact-email form-control-sm" id=contact-email name="email" type="text"
+                    placeholder="Please enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Message: </label>
+                    <input class="contact-message form-control" id=contact-message name="message" type="text"
+                    placeholder="Please enter your message here:" required>
+                </div>
+                <button type="submit" class="btn btn-cmnt-submit btn-lg">Send</button>
             </form>
         </div>
     </div>

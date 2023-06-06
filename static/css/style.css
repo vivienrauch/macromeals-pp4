@@ -273,3 +273,33 @@ h3 {
 .requiredField {
     font-family: 'Playfair', serif;
 }
+
+/* --------------------- Contact */
+
+.contact-header {
+    font-size: 150%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-control {
+    font-family: 'Playfair', serif;
+    border-style: none;
+}
+
+.form-control-sm {
+    font-family: 'Playfair', serif;
+}
+
+label {
+    font-family: 'Playfair', serif;
+    margin-top: 10px;
+}
+
+input {
+    border-style: none;
+}
