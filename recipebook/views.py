@@ -9,7 +9,7 @@ class EntryList(generic.ListView):
     model = Entry
     queryset = Entry.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
-    paginate_by = 6
+    paginate_by = 3
  
 
 class EntryDetail(View):
@@ -70,6 +70,13 @@ class EntryDetail(View):
                 "comment_form": comment_form
             },
         )
+
+
+class Recipes(generic.ListView):
+    model = Entry
+    queryset = Entry.objects.filter(status=1).order_by('-created_on')
+    template_name = 'recipes.html'
+    paginate_by = 6
 
 
 def contact(request):

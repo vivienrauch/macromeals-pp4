@@ -34,6 +34,20 @@ hr {
     color:#fa9c1b;
 }
 
+.page-link {
+    font-family: 'Playfair', serif;
+    background-color: #fa9c1b;
+    color: #3a3a3a;
+    border-radius: 8px;
+    font-size: 110%;
+}
+
+.page-link:hover {
+    background-color: #fafafa;
+    color:#fa9c1b;
+    border-color:#fa9c1b;
+}
+
 /* --------------------- Hero image */
 
 .hero-img {
