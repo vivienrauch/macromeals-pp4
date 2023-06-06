@@ -295,6 +295,22 @@ h3 {
     font-family: 'Playfair', serif;
 }
 
+.btn-msg-submit {
+    font-family: 'Playfair', serif;
+    background-color: #fa9c1b;
+    color: #3a3a3a;
+    border-radius: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 110%;
+}
+
+.btn-msg-submit:hover {
+    background-color: #fafafa;
+    color:#fa9c1b;
+    border-color:#fa9c1b;
+}
+
 label {
     font-family: 'Playfair', serif;
     margin-top: 10px;
