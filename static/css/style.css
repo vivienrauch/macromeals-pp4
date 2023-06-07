@@ -378,4 +378,9 @@ label {
 .recipe-delete:hover {
     background-color: #fafafa;
     color: #a52615;
+    border-color: #a52615;
+}
+
+.delete {
+    font-family: 'Playfair', serif;
 }

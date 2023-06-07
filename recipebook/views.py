@@ -7,6 +7,10 @@ from .forms import CommentForm, RecipeForm
 
 
 class EntryList(generic.ListView):
+    """
+    The main page where 3 of the recipes
+    are rendered at once.
+    """
     model = Entry
     queryset = Entry.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
@@ -14,7 +18,12 @@ class EntryList(generic.ListView):
  
 
 class EntryDetail(View):
-
+    """
+    Based on the "I think therefore I blog" walkthrough project.
+    It renders each individual post the user clicks on.
+    If the user is logged in, they are able to rate and comment.
+    The comment will need to be approved by the admin.
+    """
     def get(self, request, slug, *args, **kwargs):
 
         queryset = Entry.objects.filter(status=1)
@@ -74,6 +83,10 @@ class EntryDetail(View):
 
 
 class Recipes(generic.ListView):
+    """
+    A page where all the recipes are rendered,
+    6 recipes displayed per page.
+    """
     model = Entry
     queryset = Entry.objects.filter(status=1).order_by('-created_on')
     template_name = 'recipes.html'
@@ -81,7 +94,9 @@ class Recipes(generic.ListView):
 
 
 class AddRecipe(View):
-
+    """
+    Allows the logged in user to add a recipe of their own.
+    """
     def get(self, request):
         context = {'recipe_form': RecipeForm()}
         return render(request, 'add_recipe.html', context)
@@ -111,6 +126,10 @@ class AddRecipe(View):
 
 
 class EditRecipe(UpdateView):
+    """
+    Allows the user to edit the recipe of which
+    they are the author of.
+    """
     model = Entry
     template_name = 'edit_recipe.html'
     form_class = RecipeForm
@@ -121,10 +140,27 @@ class EditRecipe(UpdateView):
         return super().recipe_form_valid(recipe_form)
 
 
+class DeleteRecipe(DeleteView):
+    """
+    Allows the user to delete the recipe of which
+    they are the author.
+    """
+    model = Entry
+    template_name = 'delete_recipe.html'
+    success_url = 'recipes/'
+
+
 def contact(request):
+    """
+    A contact page where both registered and
+    unregistered users can send their recipes and
+    questions.
+    If the message will be successfully sent,
+    it will redirect the user back to the contact page.
+    """
     if request.method == "POST":
         name = request.POST.get('name')
-        email = request.POST.get('name')
+        email = request.POST.get('email')
         message = request.POST.get('message')
         query = Contact(name=name, email=email, message=message)
         query.save()

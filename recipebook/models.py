@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Avg
+from django.template.defaultfilters import slugify
 from cloudinary.models import CloudinaryField
 
 
@@ -97,6 +98,9 @@ class Entry(models.Model):
 
 
 class Rating(models.Model):
+    """
+    Storing the Rating data
+    """
     entry = models.ForeignKey(Entry, null=False, blank=False, on_delete=models.CASCADE)
     rating = models.IntegerField(User, default=0)
     user = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
@@ -110,6 +114,9 @@ class Rating(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Storing the Comment data
+    """
     entry = models.ForeignKey(Entry, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=80)
     email = models.EmailField()
@@ -125,9 +132,11 @@ class Comment(models.Model):
 
 
 class Contact(models.Model):
-
+    """
+    Storing the Contact data
+    """
     name = models.CharField(max_length=80, blank=False, null=False)
-    email = models.EmailField(max_length=100, blank=False, null=False),
+    email = models.EmailField(blank=False, null=False),
     message = models.TextField(blank=False, default='Type your question/recipe here:')
 
     def __str__(self):

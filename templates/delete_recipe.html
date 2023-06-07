@@ -19,15 +19,10 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
-            <h2 class="contact-header">Add your recipe</h2>
-            <p>
-                Widen our selection of meals with your favourite one!
-            </p>
-            <form action="{% url 'add_recipe' %}" method="POST">
+            <h2 class="contact-header delete">Are you sure you want to delete "{{ entry.title }}"?</h2>
+            <form action="{% url 'delete_recipe' entry.slug %}" method="POST">
                 {% csrf_token %}
-                {{ recipe_form|crispy }}
-                {{ form.media }}
-                <button type="submit" class="btn btn-msg-submit btn-lg">Send</button>
+                <button class="btn recipe-delete btn-lg">Delete</button>
             </form>
         </div>
     </div>

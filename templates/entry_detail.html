@@ -19,7 +19,7 @@
                             <a href="{% url 'edit_recipe' entry.slug %}">
                                 <button type="button" class="btn recipe-edit">Edit</button>
                             </a>
-                            <a href="#">
+                            <a href="{% url 'delete_recipe' entry.slug %}">
                                 <button type="button" class="btn recipe-delete">Delete</button>
                             </a>
                         </div>

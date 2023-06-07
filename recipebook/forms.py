@@ -3,12 +3,20 @@ from django import forms
 
 
 class CommentForm(forms.ModelForm):
+    """
+    The class uses the Comment model
+    and displays the body field on the form.
+    """
     class Meta:
         model = Comment
         fields = ('body',)
 
 
 class RecipeForm(forms.ModelForm):
+    """
+    Uses the Entry model with
+    field specification.
+    """
     class Meta:
         model = Entry
         fields = (
@@ -25,3 +33,7 @@ class RecipeForm(forms.ModelForm):
             'lowest_in',
             'meal_type',
         )
+
+
+
+        
