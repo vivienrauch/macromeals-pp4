@@ -342,14 +342,13 @@ label {
 .recipe-modify {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .recipe-edit {
     font-family: 'Playfair', serif;
-    background-color: #fafafa;
-    color: #fa9c1b;
-    border-color: #fa9c1b;
+    color: #fafafa;
+    background-color: #21834d;
     border-radius: 8px;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -360,13 +359,13 @@ label {
 }
 
 .recipe-edit:hover {
-    background-color: #fa9c1b;
-    color: #fafafa;
+    background-color: #fafafa;
+    color: #21834d;
 }
 
 .recipe-delete {
     font-family: 'Playfair', serif;
-    background-color: #fa9c1b;
+    background-color: #a52615;
     color: #fafafa;
     border-radius: 8px;
     margin-top: 15px;
@@ -378,6 +377,5 @@ label {
 
 .recipe-delete:hover {
     background-color: #fafafa;
-    color: #fa9c1b;
-    border-color: #fa9c1b;
+    color: #a52615;
 }

@@ -68,7 +68,7 @@ class EntryDetail(View):
                 "comments": comments,
                 "commented": True,
                 "rating": rating,
-                "comment_form": comment_form
+                "comment_form": comment_form,
             },
         )
 
@@ -117,7 +117,7 @@ class EditRecipe(UpdateView):
     success_url = 'recipes/'
 
     def recipe_form_valid(self, recipe_form):
-        messages.success(self.request, 'Your modifications were saved successfully.')
+        messages.success(self.request, 'Your recipe is updated.')
         return super().recipe_form_valid(recipe_form)
 
 

@@ -13,6 +13,18 @@
                         <h5 class="card-title recipe-title">{{ entry.title }}</h5>
                         <p class="card-text">{{ entry.author }}</p>
                         <p class="card-text"><small class="text-muted">{{ entry.created_on }}</small></p>
+                        {% if user.is_authenticated %}
+                        {% if user.id == entry.author.id %}
+                        <div class="recipe-modify">
+                            <a href="{% url 'edit_recipe' entry.slug %}">
+                                <button type="button" class="btn recipe-edit">Edit</button>
+                            </a>
+                            <a href="#">
+                                <button type="button" class="btn recipe-delete">Delete</button>
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% endif %}
                     </div>
                 </div>
             </div>

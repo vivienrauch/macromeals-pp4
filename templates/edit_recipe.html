@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %} Add Recipe {% endblock %}
+{% block title %} Edit Recipe {% endblock %}
 
 {% load static %}
 
@@ -17,27 +17,27 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-{% if user.id == entry.author.id or user.is_superuser %}
+{% if entry.author.id == user.id or user.is_superuser %}
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
             <h2 class="contact-header">Edit your recipe</h2>
-            <form action="{% url 'add_recipe' entry.slug %}" method="POST">
+            <form action="{% url 'edit_recipe' entry.id %}" method="POST">
                 {% csrf_token %}
                 {{ recipe_form|crispy }}
-                <a href="{% url 'add_recipe' entry.slug %}">
-                    <button type="submit" class="btn btn-msg-submit btn-lg">Send</button>
-                </a>
+                <button type="submit" class="btn btn-msg-submit btn-lg">Save</button>
             </form>
         </div>
     </div>
 </div>
 
 {% else %}
-Access denied
+Access Denied
 {% endif %}
-Access denied
+
+{% else %}
+Access Denied
 {% endif %}
 
 {% endblock %}

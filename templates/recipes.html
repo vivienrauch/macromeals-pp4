@@ -30,24 +30,6 @@
                                 <h2 class="card-title">{{ entry.title }}</h2>
                                 <p class="card-text">{{ entry.excerpt }}</p>
                             </a>
-                            {% if user.is_authenticated %}
-                            {% if user.id == entry.author.id %}
-                            <div class="container recipe-modify">
-                                <div class="row">
-                                    <div class="col recipe-modify">
-                                        <a href="{% url 'edit_recipe' entry.slug %}">
-                                            <button type="button" class="btn recipe-edit">Edit</button>
-                                        </a>
-                                        <div class="col recipe-modify">
-                                            <a href="#">
-                                                <button type="button" class="btn recipe-delete">Delete</button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endif %}
-                            {% endif %}
                             <hr />
                             <p class="author">Author: {{ entry.author }}</p>
                             <p class="card-text text-muted h6">{{ entry.created_on}} </p>
