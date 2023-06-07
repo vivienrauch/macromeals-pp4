@@ -337,4 +337,47 @@ label {
     border-style: none;
 }
 
-/* --------------------- Add Recipe */
+/* --------------------- Recipes */
+
+.recipe-modify {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.recipe-edit {
+    font-family: 'Playfair', serif;
+    background-color: #fafafa;
+    color: #fa9c1b;
+    border-color: #fa9c1b;
+    border-radius: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 110%;
+    padding: 7px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.recipe-edit:hover {
+    background-color: #fa9c1b;
+    color: #fafafa;
+}
+
+.recipe-delete {
+    font-family: 'Playfair', serif;
+    background-color: #fa9c1b;
+    color: #fafafa;
+    border-radius: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 110%;
+    padding: 7px;
+    text-decoration: none;
+}
+
+.recipe-delete:hover {
+    background-color: #fafafa;
+    color: #fa9c1b;
+    border-color: #fa9c1b;
+}

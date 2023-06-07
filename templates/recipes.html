@@ -15,40 +15,58 @@
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for entry in entry_list %}
-                    <div class="col-md-4 d-flex align-items-stretch">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="image-container">
-                                    {% if "placeholder" in entry.featured_image.url %}
-                                    <img class="card-img-top"
-                                        src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
-                                    {% else %}
-                                    <img class="card-img-top" src=" {{ entry.featured_image.url }}">
-                                    {% endif %}
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if "placeholder" in entry.featured_image.url %}
+                                <img class="card-img-top"
+                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ entry.featured_image.url }}">
+                                {% endif %}
+                            </div>
+                            <a href="{% url 'entry_detail' entry.slug %}" class="post-link">
+                                <h2 class="card-title">{{ entry.title }}</h2>
+                                <p class="card-text">{{ entry.excerpt }}</p>
+                            </a>
+                            {% if user.is_authenticated %}
+                            {% if user.id == entry.author.id %}
+                            <div class="container recipe-modify">
+                                <div class="row">
+                                    <div class="col recipe-modify">
+                                        <a href="{% url 'edit_recipe' entry.slug %}">
+                                            <button type="button" class="btn recipe-edit">Edit</button>
+                                        </a>
+                                        <div class="col recipe-modify">
+                                            <a href="#">
+                                                <button type="button" class="btn recipe-delete">Delete</button>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a href="{% url 'entry_detail' entry.slug %}" class="post-link">
-                                    <h2 class="card-title">{{ entry.title }}</h2>
-                                    <p class="card-text">{{ entry.excerpt }}</p>
-                                </a>
-                                <hr />
-                                <p class="author">Author: {{ entry.author }}</p>
-                                <p class="card-text text-muted h6">{{ entry.created_on}} </p>
-                                <p class="card-text text-muted h6"><i class="fa-regular fa-star"></i>
-                                    {{ entry.average_rating|floatformat:1 }}
+                            </div>
+                            {% endif %}
+                            {% endif %}
+                            <hr />
+                            <p class="author">Author: {{ entry.author }}</p>
+                            <p class="card-text text-muted h6">{{ entry.created_on}} </p>
+                            <p class="card-text text-muted h6"><i class="fa-regular fa-star"></i>
+                                {{ entry.average_rating|floatformat:1 }}
+                            </p>
+                            <div class="col-1">
+                                {% with comments.count as total_comments %}
+                                <p><i class="fa-regular fa-comments"></i>
+                                    {{ total_comments }}
                                 </p>
-                                <div class="col-1">
-                                    {% with comments.count as total_comments %}
-                                    <p><i class="fa-regular fa-comments"></i>
-                                        {{ total_comments }}
-                                    </p>
-                                    {% endwith %}
-                                </div>
+                                {% endwith %}
                             </div>
                         </div>
                     </div>
-                {% if forloop.counter|divisibleby:3 %}
                 </div>
-                <div class="row">
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
                 {% endif %}
                 {% endfor %}
             </div>

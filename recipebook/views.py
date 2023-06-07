@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View 
 from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
+from django.contrib import messages
 from .models import Entry, Rating, Contact
 from .forms import CommentForm, RecipeForm
 
@@ -91,6 +92,7 @@ class AddRecipe(View):
                 'author': request.user.email
             })
             if recipe_form.is_valid():
+                recipe_form.instance.author = self.request.user
                 recipe_form.instance.name = request.user.username
                 recipe_form.instance.email = request.user.email
                 recipe_form.save()
