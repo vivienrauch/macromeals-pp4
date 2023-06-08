@@ -37,13 +37,6 @@
                                 <p class="card-text text-muted h6"><i class="fa-regular fa-star"></i>
                                     {{ entry.average_rating|floatformat:1 }}
                                 </p>
-                                <div class="col-1">
-                                    {% with comments.count as total_comments %}
-                                    <p><i class="fa-regular fa-comments"></i>
-                                        {{ total_comments }}
-                                    </p>
-                                    {% endwith %}
-                                </div>
                             </div>
                         </div>
                     </div>

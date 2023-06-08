@@ -95,6 +95,9 @@
                     <p class="comment-date">
                         {{ comment.created_on }}
                     </p>
+                    {% if request.user == comment.user %}
+                    <a href="{% url 'update_comment' comment.id entry.slug %}">Edit</a>
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>
@@ -103,7 +106,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col card mb-4 mt-3 comments">
+        <div class="col mb-4 mt-3 comments">
             <div class="card-body">
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
@@ -158,7 +161,7 @@
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-cmnt-submit btn-lg">Submit</button>
-                </form>
+                </form>                
                 {% endif %}
                 {% endif %}
             </div>

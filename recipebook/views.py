@@ -128,16 +128,16 @@ class AddRecipe(View):
 class EditRecipe(UpdateView):
     """
     Allows the user to edit the recipe of which
-    they are the author of.
+    they are the author.
     """
     model = Entry
     template_name = 'edit_recipe.html'
     form_class = RecipeForm
     success_url = 'recipes/'
 
-    def recipe_form_valid(self, recipe_form):
+    def form_valid(self, recipe_form):
         messages.success(self.request, 'Your recipe is updated.')
-        return super().recipe_form_valid(recipe_form)
+        return super(EditRecipe, self).form_valid(recipe_form)
 
 
 class DeleteRecipe(DeleteView):
@@ -148,6 +148,27 @@ class DeleteRecipe(DeleteView):
     model = Entry
     template_name = 'delete_recipe.html'
     success_url = 'recipes/'
+
+
+def update_comment(request, comment_id, slug):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if not comment.user ==  request.user:
+        messages.error(request, 'Access denied')
+        return redirect('entr_detail', slug)
+    form = CommentForm(request.POST or None, instance=comment)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.instance.approved = False
+            form.save()
+            messages.success(request, 'Your updated comment will be visible upon approval.')
+            return redirect('entry_detail', slug)
+        messages.error(request, 'Something went wrong. Please try again.')
+    context = {
+        'form': form,
+        'comment': comment
+    }
+    template = 'update_comment.html'
+    return render(request, template, context)
 
 
 def contact(request):

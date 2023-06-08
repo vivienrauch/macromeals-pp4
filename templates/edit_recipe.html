@@ -25,7 +25,7 @@
             <h2 class="contact-header">Edit your recipe</h2>
             <form action="{% url 'edit_recipe' entry.slug %}" method="POST">
                 {% csrf_token %}
-                {{ recipe_form|crispy }}
+                {{ recipe_form |crispy }}
                 {{ recipe_form.media }}
                 <button type="submit" class="btn btn-msg-submit btn-lg">Save</button>
             </form>
