@@ -103,7 +103,7 @@ class AddRecipe(View):
 
     def post(self, request):
         if request.method == 'POST':
-            recipe_form = RecipeForm(request.POST, initial={
+            recipe_form = RecipeForm(request.POST, request.FILES, initial={
                 'author': request.user.email
             })
             if recipe_form.is_valid():
@@ -134,10 +134,6 @@ class EditRecipe(UpdateView):
     template_name = 'edit_recipe.html'
     form_class = RecipeForm
     success_url = 'recipes/'
-
-    def form_valid(self, recipe_form):
-        messages.success(self.request, 'Your recipe is updated.')
-        return super(EditRecipe, self).form_valid(recipe_form)
 
 
 class DeleteRecipe(DeleteView):

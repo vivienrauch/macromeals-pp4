@@ -34,6 +34,9 @@ class RecipeForm(forms.ModelForm):
             'meal_type',
         )
 
+    def __init__(self, *args, **kwargs):
+        super(RecipeForm, self).__init__(*args, **kwargs)
+
 
 
         
