@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View 
 from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
 from django.contrib import messages
+from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+from django.contrib.messages.views import SuccessMessageMixin
 from .models import Entry, Rating, Contact
 from .forms import CommentForm, RecipeForm
 
@@ -93,36 +96,31 @@ class Recipes(generic.ListView):
     paginate_by = 6
 
 
-class AddRecipe(View):
+def AddRecipe(request):
     """
-    Allows the logged in user to add a recipe of their own.
+    Allows the user to add their own recipes.
     """
-    def get(self, request):
-        context = {'recipe_form': RecipeForm()}
-        return render(request, 'add_recipe.html', context)
+    recipe_form = RecipeForm(request.POST or None, request.FILES or None)
+    context = {
+        'recipe_form': recipe_form,
+    }
 
-    def post(self, request):
-        if request.method == 'POST':
-            recipe_form = RecipeForm(request.POST, request.FILES, initial={
-                'author': request.user.email
-            })
-            if recipe_form.is_valid():
-                recipe_form.instance.author = self.request.user
-                recipe_form.instance.name = request.user.username
-                recipe_form.instance.email = request.user.email
-                recipe_form.save()
-                messages.success(request, 'Your post will be visible upon approval.')
-                return redirect('home')
-            else:
-                messages.error(request, "Your request couldn't be completed. Please try again.")
-                context = {'recipe_form': recipe_form}
-                return render(request, 'add_recipe.html', context)
+    if request.method == 'POST':
+        recipe_form = RecipeForm(request.POST, request.FILES)
+        if recipe_form.is_valid():
+            recipe_form.instance.author = request.user
+            recipe_form.instance.status = 1
+            recipe = recipe_form.save(commit=False)
 
+            recipe.save()
+            messages.success(request, 'Your recipe was saved successfully.')
+            return redirect('home')
         else:
-            recipe_form = RecipeForm()
-
-        context = {'recipe_form': recipe_form}
-        return render(request, 'recipes.html', context)
+            messages.error(request, 'Something went wrong. Please try again.')
+    else:
+        recipe_form = RecipeForm()
+    return render(request, 'add_recipe.html', context)
+  
 
 
 class EditRecipe(UpdateView):
@@ -133,7 +131,6 @@ class EditRecipe(UpdateView):
     model = Entry
     template_name = 'edit_recipe.html'
     form_class = RecipeForm
-    success_url = 'recipes/'
 
 
 class DeleteRecipe(DeleteView):
@@ -143,28 +140,7 @@ class DeleteRecipe(DeleteView):
     """
     model = Entry
     template_name = 'delete_recipe.html'
-    success_url = 'recipes/'
-
-
-def update_comment(request, comment_id, slug):
-    comment = get_object_or_404(Comment, id=comment_id)
-    if not comment.user ==  request.user:
-        messages.error(request, 'Access denied')
-        return redirect('entr_detail', slug)
-    form = CommentForm(request.POST or None, instance=comment)
-    if request.method == 'POST':
-        if form.is_valid():
-            form.instance.approved = False
-            form.save()
-            messages.success(request, 'Your updated comment will be visible upon approval.')
-            return redirect('entry_detail', slug)
-        messages.error(request, 'Something went wrong. Please try again.')
-    context = {
-        'form': form,
-        'comment': comment
-    }
-    template = 'update_comment.html'
-    return render(request, template, context)
+    success_url = reverse_lazy('recipes')
 
 
 def contact(request):

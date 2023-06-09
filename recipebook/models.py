@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models import Avg
 from django.template.defaultfilters import slugify
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -95,6 +96,14 @@ class Entry(models.Model):
 
     def __str__(self):
         return f"{self.title}: {self.average_rating()}"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('entry_detail', kwargs={'slug': self.slug})
 
 
 class Rating(models.Model):

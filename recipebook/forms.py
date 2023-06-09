@@ -1,5 +1,6 @@
 from .models import Comment, Entry
 from django import forms
+from django_summernote.widgets import SummernoteWidget
 
 
 class CommentForm(forms.ModelForm):
@@ -33,6 +34,11 @@ class RecipeForm(forms.ModelForm):
             'lowest_in',
             'meal_type',
         )
+
+        text_editor = {
+            'ingredients': SummernoteWidget(),
+            'steps': SummernoteWidget(),
+        }
 
     def __init__(self, *args, **kwargs):
         super(RecipeForm, self).__init__(*args, **kwargs)
