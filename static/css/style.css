@@ -93,6 +93,10 @@ hr {
     text-decoration: underline;
 }
 
+.navbar-toggler-icon {
+    display:flex;
+}
+
 /* --------------------- Cards */
 
 .post-link {
@@ -389,4 +393,12 @@ label {
 
 .delete {
     font-family: 'Playfair', serif;
+}
+
+/* --------------------- Media queries */
+
+@media screen and (max-width: 769px) {
+    .nav {
+        flex-direction: column;
+    }
 }
