@@ -157,7 +157,7 @@ def contact(request):
         message = request.POST.get('message')
         query = Contact(name=name, email=email, message=message)
         query.save()
-        messages.success('Your message is sent successfully!')
+        messages.success(request, 'Your message is sent successfully!')
             
         return redirect('/contact')
 

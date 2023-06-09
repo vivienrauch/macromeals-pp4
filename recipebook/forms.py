@@ -1,4 +1,4 @@
-from .models import Comment, Entry
+from .models import Comment, Entry, Contact
 from django import forms
 from django_summernote.widgets import SummernoteWidget
 
@@ -23,6 +23,7 @@ class RecipeForm(forms.ModelForm):
         fields = (
             'featured_image',
             'title',
+            'excerpt',
             'cooking_time',
             'ingredients',
             'steps',
@@ -35,7 +36,7 @@ class RecipeForm(forms.ModelForm):
             'meal_type',
         )
 
-        text_editor = {
+        widgets = {
             'ingredients': SummernoteWidget(),
             'steps': SummernoteWidget(),
         }

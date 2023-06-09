@@ -12,7 +12,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 high_protein = "Protein"
 high_carb = "Carbs"
 high_fat = "Fat"
-empty_field = "EF"
+empty_field = "-"
 macro_high_choices = [
     (high_protein, "Protein"),
     (high_carb, "Carbs"),
@@ -32,10 +32,10 @@ macro_low_choices = [
     ]
 
 # Meal type variables
-vegan = 'Vegan'
-carnivore = 'Carnivore'
-vegetarian = 'Vegetarian (lacto-ovo)'
-pescitarian = 'Pescitarian'
+vegan = "Vegan"
+carnivore = "Carnivore"
+vegetarian = "Vegetarian (lacto-ovo)"
+pescitarian = "Pescitarian"
 meal_type_choices = [
     (vegan, "Vegan"),
     (vegetarian, "Vegetarian (lacto-ovo)"),
@@ -70,17 +70,17 @@ class Entry(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     highest_in = models.CharField(
-        max_length = 8,
+        max_length = 25,
         choices = macro_high_choices,
         default = empty_field
         ) 
     lowest_in = models.CharField(
-        max_length = 8,
+        max_length = 25,
         choices = macro_low_choices,
         default = empty_field
     )
     meal_type = models.CharField(
-        max_length = 23,
+        max_length = 25,
         choices = meal_type_choices,
         default = empty_field
     )
@@ -145,7 +145,7 @@ class Contact(models.Model):
     Storing the Contact data
     """
     name = models.CharField(max_length=80, blank=False, null=False)
-    email = models.EmailField(blank=False, null=False),
+    email = models.EmailField(blank=False, null=False, default='Type your email here')
     message = models.TextField(blank=False, default='Type your question/recipe here:')
 
     def __str__(self):
