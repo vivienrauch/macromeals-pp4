@@ -97,7 +97,22 @@ hr {
     display:flex;
 }
 
+.navbar-toggler {
+    background-color: #fafafa;
+    border-color: #fa9c1b;
+    margin-left: 10px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+
 /* --------------------- Cards */
+
+.row {
+    justify-content: center;
+}
 
 .post-link {
     text-decoration: none;
@@ -397,8 +412,33 @@ label {
 
 /* --------------------- Media queries */
 
+@media screen and (max-width: 1200px) {
+    .col-md-4 {
+        width: 50%;
+    }
+
+    .hero-img {
+        height: 400px;
+    }
+}
+
 @media screen and (max-width: 769px) {
     .nav {
         flex-direction: column;
+    }
+
+    .hero-img {
+        height: 250px;
+    }
+
+    .col-md-4 {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .col-md-4 {
+        width: 100%;
     }
 }
