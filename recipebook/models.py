@@ -36,6 +36,7 @@ vegan = "Vegan"
 carnivore = "Carnivore"
 vegetarian = "Vegetarian (lacto-ovo)"
 pescitarian = "Pescitarian"
+
 meal_type_choices = [
     (vegan, "Vegan"),
     (vegetarian, "Vegetarian (lacto-ovo)"),
