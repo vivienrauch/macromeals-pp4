@@ -99,7 +99,7 @@ hr {
 
 .navbar-toggler {
     background-color: #fafafa;
-    border-color: #fa9c1b;
+    border-style: none;
     margin-left: 10px;
 }
 
@@ -109,10 +109,6 @@ hr {
 
 
 /* --------------------- Cards */
-
-.row {
-    justify-content: center;
-}
 
 .post-link {
     text-decoration: none;
@@ -431,6 +427,10 @@ label {
         height: 250px;
     }
 
+    .hero-img-signup-in {
+        height: 250px;
+    }
+
     .col-md-4 {
         width: 50%;
     }
@@ -440,5 +440,37 @@ label {
 
     .col-md-4 {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 752px) {
+
+    .hero-img {
+        height: 390px;
+    }
+
+    .hero-img-signup-in {
+        height: 370px;
+    }
+}
+
+@media screen and (max-width: 445px) {
+
+    .hero-img {
+        height: 350px;
+    }
+
+    .hero-img-signup-in {
+        height: 300px;
+    }
+
+    .hero-img h1 {
+        font-size: 150%;
+    }
+
+    .hero-img p {
+        display: flex;
+        text-align: center;
+        font-size: 140%;
     }
 }
