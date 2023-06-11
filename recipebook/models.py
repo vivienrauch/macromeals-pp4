@@ -51,39 +51,45 @@ class Entry(models.Model):
     Storing Entry data
     """
     title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique = True)
+    slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     updated_on = models.DateTimeField(auto_now=True)
     cooking_time = models.IntegerField(
-        default=0, 
-        help_text = "Add your cooking time in minutes"
+        default=0,
+        help_text="Add your cooking time in minutes"
         )
     ingredients = models.TextField(blank=False)
     steps = models.TextField(blank=False)
     kcal = models.IntegerField(default=0)
     protein = models.IntegerField(
-        help_text = "Add your amount in grams", default=0
+        help_text="Add your amount in grams", default=0
         )
-    carbs = models.IntegerField(help_text = "Add your amount in grams", default=0)
-    fat = models.IntegerField(help_text = "Add your amount in grams", default=0)
+    carbs = models.IntegerField(
+        help_text="Add your amount in grams",
+        default=0
+        )
+    fat = models.IntegerField(
+        help_text="Add your amount in grams",
+        default=0
+        )
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     highest_in = models.CharField(
-        max_length = 25,
-        choices = macro_high_choices,
-        default = empty_field
-        ) 
+        max_length=25,
+        choices=macro_high_choices,
+        default=empty_field
+        )
     lowest_in = models.CharField(
-        max_length = 25,
-        choices = macro_low_choices,
-        default = empty_field
+        max_length=25,
+        choices=macro_low_choices,
+        default=empty_field
     )
     meal_type = models.CharField(
-        max_length = 25,
-        choices = meal_type_choices,
-        default = empty_field
+        max_length=25,
+        choices=meal_type_choices,
+        default=empty_field
     )
 
     class Meta:
@@ -93,7 +99,9 @@ class Entry(models.Model):
     # https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c
 
     def average_rating(self) -> float:
-        return Rating.objects.filter(entry=self).aggregate(Avg("rating"))["rating__avg"] or 0
+        return Rating.objects.filter(entry=self).aggregate(
+            Avg("rating")
+            )["rating__avg"] or 0
 
     def __str__(self):
         return f"{self.title}: {self.average_rating()}"
@@ -111,9 +119,19 @@ class Rating(models.Model):
     """
     Storing the Rating data
     """
-    entry = models.ForeignKey(Entry, null=False, blank=False, on_delete=models.CASCADE)
+    entry = models.ForeignKey(
+        Entry,
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE
+        )
     rating = models.IntegerField(User, default=0)
-    user = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User,
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE
+        )
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -127,7 +145,11 @@ class Comment(models.Model):
     """
     Storing the Comment data
     """
-    entry = models.ForeignKey(Entry, on_delete=models.CASCADE, related_name="comments")
+    entry = models.ForeignKey(
+        Entry,
+        on_delete=models.CASCADE,
+        related_name="comments"
+        )
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
@@ -146,8 +168,15 @@ class Contact(models.Model):
     Storing the Contact data
     """
     name = models.CharField(max_length=80, blank=False, null=False)
-    email = models.EmailField(blank=False, null=False, default='Type your email here')
-    message = models.TextField(blank=False, default='Type your question/recipe here:')
+    email = models.EmailField(
+        blank=False,
+        null=False,
+        default='Type your email here'
+        )
+    message = models.TextField(
+        blank=False,
+        default='Type your question/recipe here:'
+        )
 
     def __str__(self):
         return f"{self.name} sent a message from {self.email}"

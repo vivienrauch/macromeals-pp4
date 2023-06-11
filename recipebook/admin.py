@@ -5,11 +5,34 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Entry)
 class EntryAdmin(SummernoteModelAdmin):
-    
-    list_display = ('title', 'slug', 'status', 'created_on', 'highest_in', 'lowest_in', 'meal_type')
-    search_fields = ('title', 'cooking_time', 'protein', 'carbs', 'fat', 'highest_in', 'lowest_in', 'meal_type')
+
+    list_display = (
+        'title',
+        'slug',
+        'status',
+        'created_on',
+        'highest_in',
+        'lowest_in',
+        'meal_type'
+        )
+    search_fields = (
+        'title',
+        'cooking_time',
+        'protein',
+        'carbs',
+        'fat',
+        'highest_in',
+        'lowest_in',
+        'meal_type')
+
     prepopulated_fields = {'slug': ('title',)}
-    list_filter = ('status', 'created_on', 'highest_in', 'lowest_in', 'meal_type')
+    list_filter = (
+        'status',
+        'created_on',
+        'highest_in',
+        'lowest_in',
+        'meal_type'
+        )
     summernote_fields = ('steps', 'ingredients')
 
 
@@ -29,10 +52,3 @@ class CommentAdmin(admin.ModelAdmin):
 class RatingAdmin(admin.ModelAdmin):
 
     list_display = ('user', 'entry', 'rating')
-
- 
-
-
-
-
-

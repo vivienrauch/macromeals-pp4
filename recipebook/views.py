@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.views import generic, View 
+from django.views import generic, View
 from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -18,7 +18,7 @@ class EntryList(generic.ListView):
     queryset = Entry.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 3
- 
+
 
 class EntryDetail(View):
     """
@@ -120,7 +120,6 @@ def AddRecipe(request):
     else:
         recipe_form = RecipeForm()
     return render(request, 'add_recipe.html', context)
-  
 
 
 class EditRecipe(UpdateView):
@@ -158,7 +157,7 @@ def contact(request):
         query = Contact(name=name, email=email, message=message)
         query.save()
         messages.success(request, 'Your message is sent successfully!')
-            
+
         return redirect('/contact')
 
     return render(request, 'contact.html')
