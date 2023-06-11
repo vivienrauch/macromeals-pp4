@@ -24,9 +24,11 @@
                             <div class="image-container">
                                 {% if "placeholder" in entry.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://res.cloudinary.com/dnm7rmkuf/image/upload/v1685102711/qrukdohpn7oczkfyber3.jpg">
+                                    src="https://res.cloudinary.com/dnm7rmkuf/image/upload/v1685102711/qrukdohpn7oczkfyber3.jpg"
+                                    alt="Recipe placeholder image">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ entry.featured_image.url }}">
+                                <img class="card-img-top" src=" {{ entry.featured_image.url }}" 
+                                alt="Recipe user image">
                                 {% endif %}
                             </div>
                             <a href="{% url 'entry_detail' entry.slug %}" class="post-link">
