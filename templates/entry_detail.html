@@ -63,12 +63,12 @@ can comment. If they wrote the recipe, they can modify or delete it. -->
                     <p>Fat: {{ entry.fat }} g</p>
                 </div>
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col-2">
                         <p class="card-text text-muted h6"><i class="fa-regular fa-star"></i>
                             {{ entry.average_rating|floatformat:1 }}
                         </p>
                     </div>
-                    <div class="col-1">
+                    <div class="col-2">
                         {% with comments.count as total_comments %}
                         <p><i class="fa-regular fa-comments"></i>
                             {{ total_comments }}
