@@ -409,13 +409,15 @@ label {
 /* --------------------- Media queries */
 
 @media screen and (max-width: 1200px) {
-    .col-md-4 {
-        width: 50%;
-    }
 
     .hero-img {
         height: 400px;
     }
+}
+
+@media screen and (max-width: 1000px) {
+    
+    
 }
 
 @media screen and (max-width: 769px) {
@@ -434,7 +436,12 @@ label {
     .col-md-4 {
         width: 50%;
     }
+
+    .signup-in-card label {
+        display: flex;
+    }
 }
+
 
 @media screen and (max-width: 767px) {
 
@@ -451,6 +458,14 @@ label {
 
     .hero-img-signup-in {
         height: 370px;
+    }
+
+    .message {
+        margin-right: 15px;
+    }
+
+    .signup-in-card {
+        width: 300px;
     }
 }
 
@@ -472,5 +487,14 @@ label {
         display: flex;
         text-align: center;
         font-size: 140%;
+    }
+
+    .signup-in-card {
+        width: 250px;
+    }
+
+    footer p {
+        font-size: 80%;
+        text-align: center;
     }
 }
