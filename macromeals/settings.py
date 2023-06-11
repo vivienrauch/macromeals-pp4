@@ -28,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['macromeals-vmr-pp4.herokuapp.com', 'localhost', '8000-vivienrauch-macromealsp-0r3hlb0qrog.ws-eu97.gitpod.io', '8000-vivienrauch-macromealsp-5gzk5erejrz.ws-eu98.gitpod.io', '8000-vivienrauch-macromealsp-5gzk5erejrz.ws-eu99.gitpod.io']
 
