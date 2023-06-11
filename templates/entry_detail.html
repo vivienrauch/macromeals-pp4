@@ -15,6 +15,9 @@ can comment. If they wrote the recipe, they can modify or delete it. -->
                         <h5 class="card-title recipe-title">{{ entry.title }}</h5>
                         <p class="card-text">{{ entry.author }}</p>
                         <p class="card-text"><small class="text-muted">{{ entry.created_on }}</small></p>
+
+                        <!-- Edit or delete functionality for authenticated
+                        users to whom the recipe belongs. -->
                         {% if user.is_authenticated %}
                         {% if user.id == entry.author.id %}
                         <div class="recipe-modify">
@@ -33,6 +36,7 @@ can comment. If they wrote the recipe, they can modify or delete it. -->
         </div>
     </div>
 </div>
+<!-- Form parameters -->
 <div class="container">
     <div class="row">
         <div class="col card mb-4 mt-3 left top">
@@ -81,6 +85,7 @@ can comment. If they wrote the recipe, they can modify or delete it. -->
         <hr>
     </div>
 </div>
+<!-- Comment display -->
 <div class="container">
     <div class="row">
         <div class="col card mb-4 mt-3 comments">
@@ -106,6 +111,7 @@ can comment. If they wrote the recipe, they can modify or delete it. -->
         </div>
     </div>
 </div>
+<!-- Commenting and Rating -->
 <div class="container">
     <div class="row">
         <div class="col mb-4 mt-3 comments">
