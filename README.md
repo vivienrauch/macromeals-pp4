@@ -4,7 +4,8 @@
 
 https://macromeals-vmr-pp4.herokuapp.com/
 
-*place for the amiresponsive image*
+
+![amiresponsive](docs/amiresponsive.jpg)
 
 ## **Repository**
 
@@ -14,13 +15,15 @@ https://github.com/vivienrauch/macromeals-pp4
 
 # **Objective** - *Stragety Plane*
 
+
+
 ## **User Stories**
 
 ## **Features** - *Scope, skeleton & structure plane*
 
 ### **Database Structure**
 
-<img src="https://res.cloudinary.com/dnm7rmkuf/image/upload/v1685047009/macromeals_database_juz9lr.png">
+![lucidchart-database](docs/macromeals-lucidchart-db.jpg)
 
 ### **Wireframes**
 
@@ -30,11 +33,25 @@ https://github.com/vivienrauch/macromeals-pp4
 
 ### **Colors**
 
+- The color palette of the page was inspired by the main image:
+<img src="https://res.cloudinary.com/dnm7rmkuf/image/upload/v1685011034/pexels-ella-olsson-1640770_z9yku5.jpg">
+
+- Text colors:
+![text-colors](docs/text-colors.jpg)
+
 ### **Fonts**
+
+I used Cinzel Decorative, Cinzel and Playfair to match the vibe I was going for with this website. Classic and elegant.
 
 ### **Existing Features**
 
+
+
 ### **Future Features**
+
+- Edit comment
+
+- My Recipes page
 
 # **Testing**
 
@@ -87,7 +104,7 @@ python3 manage.py startapp recipebook
 
     - **HTML**
     - **CSS**
-    - **Javascript**
+    - **Javascript (Bootstrap JS)**
     - **Python**
     - **Django**
     - **PostgreSQL**
@@ -96,6 +113,35 @@ python3 manage.py startapp recipebook
 
 - Other tools:
 
+    - [Canva](https://www.canva.com/)
+    - [Pexels](https://www.pexels.com/)
+    - [Cloudinary](https://cloudinary.com/)
+    - [Font Awesome](https://fontawesome.com/)
+    - [Favicon Generator](https://favicon.io/favicon-converter/)
+    - [Google Fonts](https://fonts.google.com/)
+    - [LucidCharts](https://lucid.app/)
+    - [Balsamiq](https://balsamiq.com/)
+    - [Heroku](https://www.heroku.com/)
+
+
 # **Credits**
+
+- The [Think therefore I blog project](https://github.com/Code-Institute-Solutions/Django3blog) gave the basis of the whole project
+- Tutor Support
+- Slack community
+- Stackoverflow
+- Youtube:
+    - Inspo to edit posts:
+    https://www.youtube.com/watch?v=p5gYHSFT_QA&t=301s
+    https://www.youtube.com/watch?v=p5gYHSFT_QA
+    https://www.youtube.com/watch?v=m3efqF9abyg
+- The recipe content came from the following pages:
+    https://www.emilieeats.com/
+    https://minimalistbaker.com/
+- Inspo from fellow students:
+    https://github.com/TheresLundqvist/Ski-resorts/tree/main
+    https://github.com/Maya-Claveau/pp4-fungi-news
+    https://github.com/Sharpryan20/food-twisters
+
 
 
