@@ -6,6 +6,7 @@ https://macromeals-vmr-pp4.herokuapp.com/
 
 
 ![amiresponsive](docs/amiresponsive.jpg)
+https://ui.dev/amiresponsive?url=https://macromeals-vmr-pp4.herokuapp.com/
 
 ## **Repository**
 
