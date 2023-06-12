@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Entry, Comment, Rating
+from .models import Entry, Comment, Rating, Contact
 from django_summernote.admin import SummernoteModelAdmin
 
 
