@@ -52,3 +52,9 @@ class CommentAdmin(admin.ModelAdmin):
 class RatingAdmin(admin.ModelAdmin):
 
     list_display = ('user', 'entry', 'rating')
+
+
+@admin.register(Contact)
+class Contact(admin.ModelAdmin):
+
+    list_display = ('name', 'email', 'message')
