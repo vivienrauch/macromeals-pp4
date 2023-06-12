@@ -28,7 +28,7 @@
             <form action="{% url 'add_recipe' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ recipe_form|crispy }}
-                <button type="submit" class="btn btn-msg-submit btn-lg">Send</button>
+                <button type="submit" class="btn btn-msg-submit btn-lg">Save</button>
             </form>
         </div>
     </div>

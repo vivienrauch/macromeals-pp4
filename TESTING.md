@@ -211,4 +211,6 @@ The Python files were validated using the [Pep8 linter](https://pep8ci.herokuapp
 
     - I couldn't figure out how to resize the summernote widget field to fit the mobile screen properly.
 
+    - For some reason the toggle navigation is stuck in an 'in-between' state on Ipad Mini screen.
+
 Return to [README.md](README.md#macromeals-pp4)
