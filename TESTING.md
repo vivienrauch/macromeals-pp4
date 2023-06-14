@@ -53,6 +53,12 @@ Workspace html file:
 - Contact - PASS
 
 ![html-validation-contact](docs/html-validation-contact.jpg)
+
+- Error page - The errors I get are due to the curly braces
+
+Since all the custom error pages (403, 404, 405, 500) are equivalent in style, I only validated one of them
+
+![html-validation-error](docs/html-validation-error.jpg)
 </details>
 
 <details>
