@@ -188,6 +188,36 @@ The Python files were validated using the [Pep8 linter](https://pep8ci.herokuapp
 
 </details>
 
+## **Manual Testing**
+
+| Registration | Expected results |
+| --- | ---|
+| A username is required | If the cell is empty an error message is shown. |
+| A password is required | An error message is shown if the password is invalid or missing. |
+| An email is optional | Shouldn't be an error message shown if left empty and no verification required. |
+| Sign up button | The signup button validates the form and the user is able to log in afterwards. |
+
+| Login/Logout | Expected results |
+| --- | --- |
+| A previous registration is required to log in | When a user is logged in, they should have access to the commenting, rating, and recipe management features. If they are not logged in, navigating to those pages whould land them to a 403 or 404 page. |
+| Logout button only available if the user is logged in | Upon clicking the logout button, user should not have access to the previously available features and they should be able to navigate to the login form again. |
+
+| Recipe management | Expected results |
+| --- | --- |
+| Recipe creation | The user should be logged in to create a recipe. Once that feature is available in the naviagion bar, they should be directed to a form which can be saved after filling in the required fields. There is no admin authorization needed. |
+| Recipe modification | The user should be logged in and be the author of the recipe to be able to modify it. If they don't have the access but navigate to that page anyway, they should be redirected to a 404 or 403 page. |
+| Recipe deletion | The user should be logged in and be the author of the recipe to be able to delete it. If they don't have access but navigate to that page anyway, they should be redirected to a 404 or 403 page. |
+
+| Commenting/Rating | Expected results |
+| --- | --- |
+| See comments | Any user should be able to see the comments under a recipe. |
+| Commenting | The user should be able to comment under a recipe if they are logged in. The admin has to approve the comment before it is visible on the page. The user should get informed about it on the page. |
+| Rating | Logged in users should be able to choose from the different levels of rating and save it with a button below. Rating doesn't requre teh admin's approval. |
+
+| Contact | Expected results |
+| --- | --- |
+| Send message | Any user, reistered or non-registered can send a message via the form. All fields are required, they should be given an error if a field is left empty. |
+
 ## **Bugs**
 
 - Fixed bugs
@@ -204,6 +234,13 @@ The Python files were validated using the [Pep8 linter](https://pep8ci.herokuapp
       I can't pinpoint one thing that made the difference, I just adjusted the code until it finally clicked.
 
 - Unfixed bugs
+
+    - The Django frameworks handles the registration process, I didn't create a custom registration.
+      There is an issue with signup, where if the user creates a weak password, they get an error that the password is too weak,
+      but then they can't sign up with the same email address anymore, so the user is created anyway, despite the issue.
+
+    - There is a console error message regarding Bootstrap's close event functionality that is used for the time out of the success
+      and error messages.
 
     - I can't make the entry model choices (macro_high, macro_low, meal_type) to render on the saved page
       in a proper way.

@@ -27,7 +27,7 @@ https://github.com/vivienrauch/macromeals-pp4
 - [**Technologies Used**](#--technologies-used--)
 - [**Credits**](#--credits--)
 
-# **Objective** - *Stragety Plane*
+# **Objective**
 
 My objective was to create a vibrant, fresh and elegant looking website that radiates the message of health. I wanted to create a recipe page where users can also know the macronutrients they would consume from a meal.
 Planned to realize the CRUD via enabling the user to add and handle their own recipes.
@@ -38,7 +38,7 @@ Planned to realize the CRUD via enabling the user to add and handle their own re
 
 - [User stories](https://github.com/vivienrauch/macromeals-pp4/issues)
 
-## **Features** - *Scope, skeleton & structure plane*
+## **Features**
 
 <details>
 <summary><strong>Database Structure</strong></summary>
@@ -306,7 +306,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 - for deployment in Heroku, you'll need to create Procfile
 
-# **Deployment** - *Surface plane*
+# **Deployment**
 
 - This project users [ElephantSQL](https://www.elephantsql.com/) as its database solution. How you can obtain one and wire it up to your repository:
     - Use your GitHub account to sign up

@@ -409,11 +409,6 @@ label {
     }
 }
 
-@media screen and (max-width: 1000px) {
-    
-    
-}
-
 @media screen and (max-width: 769px) {
     .nav {
         flex-direction: column;
