@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from .views import handler403, handler404, handler405, handler500
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', include('recipebook.urls'), name='recipebook_urls'),
     path('accounts/', include('allauth.urls')),
 ]
+
+handler403 = 'macromeals.views.handler403'
+handler404 = 'macromeals.views.handler404'
+handler405 = 'macromeals.views.handler405'
+handler500 = 'macromeals.views.handler500'
