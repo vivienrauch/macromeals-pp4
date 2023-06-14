@@ -71,7 +71,7 @@ Planned to realize the CRUD via enabling the user to add and handle their own re
 
 I used Cinzel Decorative, Cinzel and Playfair to match the vibe I was going for with this website. Classic and elegant.
 
-### **Existing Features**
+### **Existing Features and responsiveness**
 
 <details>
 <summary><strong>Navigation</strong></summary>
