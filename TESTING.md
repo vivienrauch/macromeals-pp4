@@ -42,11 +42,11 @@ Page source code:
 Workspace html file:
 ![html-validation-add-recipe-code](docs/html-validation-add-recipe2.jpg)
 
-- Edit Recipe - PASS
+- Edit Recipe - PASS - Without the curly braces
 
 ![html-validation-edit-recipe](docs/html-validation-edit-recipe.jpg)
 
-- Delete Recipe - PASS
+- Delete Recipe - PASS - Without the curly braces
 
 ![html-validation-delete-recipe](docs/html-validation-delete-recipe.jpg)
 
