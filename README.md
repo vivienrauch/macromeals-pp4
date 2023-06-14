@@ -233,6 +233,20 @@ The form will ask their name, email and their message and all of these fields ar
 ![contact-m](docs/contact-mobile.jpg)
 </details>
 
+<details>
+<summary><strong>Custom Error pages</strong></summary>
+
+I created custom error pages (403, 404, 405, 500) that is equivalent in style to the other pages of the website, so it creates a coherent vibe.
+
+- Desktop:
+
+![error](docs/error-desktop.jpg)
+
+- Mobile:
+
+![error-m](docs/error-mobile.jpg)
+</details>
+
 ### **Future Features**
 
 - Edit comment: the access for the user to edit and delete their comment.

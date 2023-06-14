@@ -205,8 +205,8 @@ The Python files were validated using the [Pep8 linter](https://pep8ci.herokuapp
 
 | Login/Logout | Expected results |
 | --- | --- |
-| A previous registration is required to log in | When a user is logged in, they should have access to the commenting, rating, and recipe management features. If they are not logged in, navigating to those pages whould land them to a 403 or 404 page. |
-| Logout button only available if the user is logged in | Upon clicking the logout button, user should not have access to the previously available features and they should be able to navigate to the login form again. |
+| Login | Previous registration is required for the user to be able to log in. The log in fields are obligatory. When a user is logged in, they should have access to the commenting, rating, and recipe management features. If they are not logged in, navigating to those pages whould land them to a 403 or 404 page. |
+| Logout | Logout option is only available for logged in users. Upon clicking the logout button, user should not have access to the previously available features and they should be able to navigate to the login form again. |
 
 | Recipe management | Expected results |
 | --- | --- |
@@ -218,11 +218,21 @@ The Python files were validated using the [Pep8 linter](https://pep8ci.herokuapp
 | --- | --- |
 | See comments | Any user should be able to see the comments under a recipe. |
 | Commenting | The user should be able to comment under a recipe if they are logged in. The admin has to approve the comment before it is visible on the page. The user should get informed about it on the page. |
+| See ratings | Any user should be able to see the ratings on the recipe cards and under an individual recipe. |
 | Rating | Logged in users should be able to choose from the different levels of rating and save it with a button below. Rating doesn't requre teh admin's approval. |
 
 | Contact | Expected results |
 | --- | --- |
 | Send message | Any user, reistered or non-registered can send a message via the form. All fields are required, they should be given an error if a field is left empty. |
+
+| Error pages | Expected results |
+| --- | --- |
+| Custom error pages | The user should be redirected to one of the custom error pages if their request is invalid or some other interference occurs. On the error page they should be able to navigate back to he home page via the button under the error message or via the navigation bar.
+
+| Navigation | Expected results |
+| --- | --- |
+| Navbar | The navbar buttons are named conveniently so that the user can expect that upon clicking them they will get to the page the link indicates. Different navbar links are available for authenticated and non-authenticated users, detailed above. |
+| Buttons | Save, Send, Edit, Submit, Delete buttons are indicative of the action they will lead to. The user is redirected to the page the action took place in the first place, or in the case of error pages, the home page.|
 
 ## **Bugs**
 
