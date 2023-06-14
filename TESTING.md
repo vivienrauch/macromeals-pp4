@@ -245,7 +245,7 @@ The Python files were validated using the [Pep8 linter](https://pep8ci.herokuapp
     - I had image issues when I tried to edit a recipe in the frontend.
       I changed the request to request files, too, it worked fine.
 
-    - When editing the form, the page didn't render the preexisting form.
+    - **Biggest challenge to overcome**: When editing the form, the page didn't render the preexisting form.
       I rewrote the code in a way that it's not a request but an UpdateView and also changed the url path.
       I can't pinpoint one thing that made the difference, I just adjusted the code until it finally clicked.
 

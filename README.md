@@ -14,16 +14,16 @@ https://github.com/vivienrauch/macromeals-pp4
 
 # **Table of Contents**
 
-- [**Objective** - *Stragety Plane*](#--objective------stragety-plane-)
+- [**Objective**](#--objective--)
   * [**User Stories**](#--user-stories--)
-  * [**Features** - *Scope, skeleton & structure plane*](#--features------scope--skeleton---structure-plane-)
+  * [**Features**](#--features--)
     + [**Fonts**](#--fonts--)
     + [**Existing Features**](#--existing-features--)
     + [**Future Features**](#--future-features--)
 - [**Testing**](#--testing--)
 - [**Development**](#--development--)
   * [**Basics to get up and running**](#--basics-to-get-up-and-running--)
-- [**Deployment** - *Surface plane*](#--deployment------surface-plane-)
+- [**Deployment**](#--deployment--)
 - [**Technologies Used**](#--technologies-used--)
 - [**Credits**](#--credits--)
 
