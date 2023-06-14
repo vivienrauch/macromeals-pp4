@@ -17,6 +17,9 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+{% if entry.author.id == user.id or user.is_superuser %}
+
 <!-- Delete Recipe form -->
 <div class="container-fluid">
     <div class="row">

@@ -25,6 +25,7 @@
             <p>
                 Widen our selection of meals with your favourite one!
             </p>
+            {% if user.is_authenticated %}
             <form action="{% url 'add_recipe' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ recipe_form|crispy }}
